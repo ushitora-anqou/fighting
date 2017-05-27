@@ -6,9 +6,9 @@
 #include <vector>
 
 // for animation gif
-#include <boost/format.hpp>
-#include "SvgDrawer.hpp"
-#include <sstream>
+//#include <boost/format.hpp>
+//#include "SvgDrawer.hpp"
+//#include <sstream>
 
 // for PopenPlayer
 #include <boost/process.hpp>
@@ -427,6 +427,7 @@ public:
     }
 };
 
+/*
 void drawStageStatus(const Stage::BiasedStatus& status, const std::string& filename)
 {
     static std::array<HooLib::RGB, 3> colorTable = {
@@ -467,6 +468,7 @@ void drawStageStatus(const Stage::BiasedStatus& status, const std::string& filen
         drawer.drawRect(rect.x(), rect.y(), rect.width() - 1, rect.height() - 1);
     }
 }
+*/
 
 int main()
 {
@@ -546,7 +548,7 @@ int main()
     Stage stage(solList);
 
     stage.dump();
-    drawStageStatus(stage.getBiasedStatus(0), "pic/test000.svg");
+    //drawStageStatus(stage.getBiasedStatus(0), "pic/test000.svg");
     for(int turn = 0;turn < 100;turn++){
         std::vector<MoveInstruction> moiList;
         for(int owner = 0;owner < 2;owner++){
@@ -568,6 +570,6 @@ int main()
         stage.update();
         std::cout << turn << "===" << std::endl;
         stage.dump();
-        drawStageStatus(stage.getBiasedStatus(0), (boost::format("pic/test%03d.svg") % (turn + 1)).str());
+        //drawStageStatus(stage.getBiasedStatus(0), (boost::format("pic/test%03d.svg") % (turn + 1)).str());
     }
 }
